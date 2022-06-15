@@ -1,5 +1,5 @@
-#ifndef EX2_Card_H
-#define EX2_Card_H
+#ifndef EX4_Card_H
+#define EX4_Card_H
 
 #include <string>
 #include "Player.h"
@@ -14,7 +14,7 @@ public:
      * @return
      *      A new instance of Card.
     */
-    Card(string name);
+    Card(std::string name);
 
     /*
      * D'tor of Card class
@@ -24,20 +24,22 @@ public:
     //Card(const Card&) = default;
     //Card& operator=(const Card& other) = default;
 
+    friend std::ostream& operator<<(std::ostream& os, const Card& card);
+
     /*
      * Prints the card info.
      *
      * @return
      *      void
     */
-    virtual void printInfo() const = 0;
+    virtual void printInfo(std::ostream& os) const = 0;
 
     /*
      * Initiates an encounter with the card.
      * @return 
      *      void
     */
-    virtual void encounter() const = 0;
+    virtual void encounter(Player& player) const = 0;
 
 private:
     string m_name;
@@ -45,4 +47,4 @@ private:
 };
 
 
-#endif //EX2_Card_H
+#endif //EX4_Card_H

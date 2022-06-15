@@ -1,23 +1,23 @@
-#ifndef EX4_Goblin_H
-#define EX4_Goblin_H
+#ifndef EX4_Vampire_H
+#define EX4_Vampire_H
 
 #include "BattleCard.h"
 
-class Goblin : public BattleCard
+class Vampire : public BattleCard
 {
     public:
     /*
-    * C'tor of Goblin class
+    * C'tor of Vampire class
     *
     * @return
-    *      A new instance of a Goblin card.
+    *      A new instance of a Vampire card.
     */
-    Goblin();
+    Vampire();
 
     /*
-     * D'tor of Goblin class
+     * D'tor of Vampire class
     */
-    ~Goblin() = default override;
+    ~Vampire() = default override;
 
     /*
      * Prints the card info.

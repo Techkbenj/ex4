@@ -1,3 +1,6 @@
+#ifndef EX4_BattleCard_H
+#define EX4_BattleCard_H
+
 #include "Card.h"
 
 class BattleCard : public Card {
@@ -12,15 +15,17 @@ public:
  * @return
  *      A new instance of BattleCard.
 */
-BattleCard(string name, int force, int lossDmg, int coins);
+BattleCard(std::string name, int force, int lossDmg, int coins);
 
 /*
  * D'tor of BattleCard class
 */
-virtual ~BattleCard() = default;
+virtual ~BattleCard() = default override;
 
 private:
 m_force;
 m_lossDmg;
 m_coins;
 };
+
+#endif //EX4_BattleCard_H

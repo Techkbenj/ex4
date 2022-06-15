@@ -1,23 +1,23 @@
-#ifndef EX4_Goblin_H
-#define EX4_Goblin_H
+#ifndef EX4_Fairy_H
+#define EX4_Fairy_H
 
-#include "BattleCard.h"
+#include "Card.h"
 
-class Goblin : public BattleCard
+class Fairy:: public Card
 {
     public:
     /*
-    * C'tor of Goblin class
+    * C'tor of Fairy class
     *
     * @return
-    *      A new instance of a Goblin card.
+    *      A new instance of a Fairy card.
     */
-    Goblin();
+    Fairy();
 
     /*
      * D'tor of Goblin class
     */
-    ~Goblin() = default override;
+    ~Fairy() = default override;
 
     /*
      * Prints the card info.
@@ -33,6 +33,7 @@ class Goblin : public BattleCard
      *      void
     */
     void encounter(Player& player) const override;
-}
+};
 
-#endif //EX4_Goblin_H
+
+#endif //EX4_Fairy_H
