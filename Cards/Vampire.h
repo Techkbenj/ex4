@@ -26,13 +26,6 @@ class Vampire : public BattleCard
      *      void
     */
     void printInfo(std::ostream& os) const override;
-
-    /*
-     * Initiates an encounter with the card.
-     * @return 
-     *      void
-    */
-    void encounter(Player& player) const override;
 }
 
 #endif //EX4_Goblin_H

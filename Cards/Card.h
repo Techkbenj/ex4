@@ -2,7 +2,9 @@
 #define EX4_Card_H
 
 #include <string>
-#include "Player.h"
+#include "../Players/Player.h"
+#include "../utilities.h"
+
 
 
 class Card {
@@ -41,10 +43,18 @@ public:
     */
     virtual void encounter(Player& player) const = 0;
 
+    /*
+     * Returns the card name.
+     * @return
+     *      Name of card.
+    */
+    virtual const std::string getName() const;
+
 private:
-    string m_name;
+    std::string m_name;
     
 };
 
 
 #endif //EX4_Card_H
+
