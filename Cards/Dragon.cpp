@@ -22,7 +22,7 @@ void Dragon::encounter(Player& player) const
     }
     else
     {
-        player.damage(getDamage());
+        player.damage(player.getHp());
         printLossBattle(player.getName(), getName())
     }
 }
