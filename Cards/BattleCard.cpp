@@ -3,6 +3,13 @@
 BattleCard::BattleCard(std::string name, int force, int lossDmg, int coins) : 
     Card(name), m_force(force), m_lossDmg(lossDmg), m_coins(coins) {}
 
+void BattleCard::printInfo(std::ostream& os) const
+{
+    printCardDetails(os, getName());
+    printMonsterDetails(os, DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS, true);
+    printEndOfCardDetails(os);
+}
+
 void BattleCard::encounter(Player& player) const
 {
     if(player.getAttackStrength() >= getForce())

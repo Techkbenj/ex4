@@ -34,7 +34,7 @@ public:
      * @return
      *      void
     */
-    virtual void printInfo(std::ostream& os) const = 0;
+    virtual void printInfo(std::ostream& os) const;
 
     /*
      * Initiates an encounter with the card.
@@ -48,9 +48,9 @@ public:
      * @return
      *      Name of card.
     */
-    virtual const std::string getName() const;
+    const std::string getName() const;
 
-private:
+protected:
     std::string m_name;
     
 };

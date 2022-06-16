@@ -1,7 +1,7 @@
 
 #include "Wizard.h"
 
-Wizard::Wizard(std::string name) : Player(name) {}
+Wizard::Wizard(std::string name) : Player(name, "Wizard") {}
 
 void Wizard::heal(int health)
 {
@@ -17,6 +17,6 @@ void Wizard::heal(int health)
 
 void Wizard::printInfoOfPlayer(std::ostream& os) const
 {
-    printPlayerDetails(os, m_name, "Wizard", m_level, m_force, m_hp, m_coins);
+    printPlayerDetails(os, m_name, m_class, m_level, m_force, m_hp, m_coins);
 }
 

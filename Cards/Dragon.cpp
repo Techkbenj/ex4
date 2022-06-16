@@ -5,7 +5,7 @@ int const DEFAULT_FORCE = 25;
 int const DEFAULT_DAMAGE = INFINITE;
 int const DEFAULT_COINS = 1000;
 
-Dragon::Dragon(): BattleCard("Dragon", DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS) {};
+Dragon::Dragon() : BattleCard("Dragon", DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS) {};
 
 void Dragon::printInfo(std::ostream& os) const
 {

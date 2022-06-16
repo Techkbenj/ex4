@@ -20,14 +20,6 @@ class Fairy:: public Card
     ~Fairy() = default override;
 
     /*
-     * Prints the card info.
-     *
-     * @return
-     *      void
-    */
-    void printInfo(std::ostream& os) const override;
-
-    /*
      * Initiates an encounter with the card.
      * @return 
      *      void

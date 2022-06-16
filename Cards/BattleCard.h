@@ -23,34 +23,42 @@ BattleCard(std::string name, int force, int lossDmg, int coins);
 virtual ~BattleCard() = default override;
 
 /*
+ * Prints the card info.
+ *
+ * @return
+ *      void
+*/
+void printInfo(std::ostream& os) const override;
+
+/*
  * Initiates an encounter with the card.
  * @return 
  *      void
 */
-    virtual void encounter(Player& player) const;
+virtual void encounter(Player& player) const override;
 
 /*
  * Returns the force of the card.
  * @return
  *      Force of card.
 */
-virtual const int getForce() const;
+const int getForce() const;
 
 /*
  * Returns the damage the card inflicts upon player loss.
  * @return
  *      Damage.
 */
-virtual const int getDamage() const;
+const int getDamage() const;
 
 /*
  * Returns the amount of coins the card rewards the player.
  * @return
  *      Coins.
 */
-virtual const int getCoins() const;
+const int getCoins() const;
 
-private:
+protected:
 m_force;
 m_lossDmg;
 m_coins;

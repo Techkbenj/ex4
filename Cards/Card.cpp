@@ -8,6 +8,12 @@ std::ostream& operator<<(std::ostream& os, const Card& card)
     return os;
 }
 
+void Card::printInfo(std::ostream& os) const
+{
+    printCardDetails(os, getName());
+    printEndOfCardDetails(os);
+}
+
 const std::string Card::getName() const
 {
     return m_name;
