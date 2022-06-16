@@ -13,13 +13,6 @@ public:
 
     void printInfoOfPlayer(std::ostream& os) const override;
 
-    /*
-     * Returns class of the player.
-     *
-     * @return 
-     *      The class of the player.
-     */
-    const std::string getClass() const;
 };
 
 
