@@ -1,6 +1,8 @@
 
 #include "Wizard.h"
 
+Wizard::Wizard(std::string name) : Player(name) {}
+
 void Wizard::heal(int health)
 {
     if(health > 0)

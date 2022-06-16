@@ -40,7 +40,7 @@ protected:
     /*
      * D'tor of Player Class
      */
-    ~Player() = default;
+    virtual ~Player();
 
     /*
      * Assignment operator of player Class

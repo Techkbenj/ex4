@@ -8,7 +8,7 @@
 class Rogue : public Player
 {
 public:
-    Rogue(std::string name) : Player(name) {}
+    Rogue(std::string name);
     void addCoins(int coins) override;
 
     void printInfoOfPlayer(std::ostream& os) const override;

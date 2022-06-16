@@ -8,7 +8,7 @@
 class Fighter : public Player
 {
 public:
-    Fighter(std::string name) : Player(name) {}
+    Fighter(std::string name);
     int getAttackStrength() const override;
 
     void printInfoOfPlayer(std::ostream& os) const override;

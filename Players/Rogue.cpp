@@ -1,6 +1,8 @@
 
 #include "Rogue.h"
 
+Rogue::Rogue(std::string name) : Player(name) {}
+
 void Rogue::addCoins(int coins)
 {
     if (coins > 0)

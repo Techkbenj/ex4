@@ -8,7 +8,7 @@
 class Wizard : public Player
 {
 public:
-    Wizard(std::string name) : Player(name) {}
+    Wizard(std::string name);
     void heal(int health) override;
 
     void printInfoOfPlayer(std::ostream& os) const override;
