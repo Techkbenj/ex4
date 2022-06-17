@@ -106,6 +106,11 @@ int Player::getAttackStrength() const
     return m_level + m_force;
 }
 
+const int getCoins() const
+{
+    return m_coins;
+}
+
 std::string Player::getName()
 {
     return m_name;

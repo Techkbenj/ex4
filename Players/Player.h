@@ -129,6 +129,8 @@ protected:
      */
     virtual int getAttackStrength() const;
 
+    const int getCoins() const;
+
     std::string getName();
 
     bool isWon() const;
