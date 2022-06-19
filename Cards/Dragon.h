@@ -32,7 +32,7 @@ class Dragon : public BattleCard
      * @return 
      *      void
     */
-    void encounter(Player& player) const override;
+    void encounter(Player& player, bool gangBattle = false, bool autoLoss = false) const override;
 };
 
 #endif //EX4_Goblin_H

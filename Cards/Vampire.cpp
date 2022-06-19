@@ -8,13 +8,17 @@ const int VAMPIRE_LOSS_FORCE = -1;
 Vampire::Vampire(): BattleCard("Vampire", DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS) {}
 
 
-void Vampire::encounter(Player& player) const
+void Vampire::encounter(Player& player, bool gangBattle, bool autoLoss) const
 {
-    if(player.getAttackStrength() >= getForce())
+    if(player.getAttackStrength() >= getForce() && gangBattle == false)
     {
         player.levelUp();
         player.addCoins(getCoins());
         printWinBattle(player.getName(), getName());
+    }
+    else if(player.getAttackStrength() >= getForce() && gangBattle == true && autoLoss = false)
+    {
+        player.addCoins(getCoins());
     }
     else
     {

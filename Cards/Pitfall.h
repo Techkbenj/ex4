@@ -15,7 +15,7 @@ class Pitfall : public Card
     Pitfall();
 
     /*
-     * D'tor of Goblin class
+     * D'tor of Pitfall class
     */
     ~Pitfall() override = default;
 
