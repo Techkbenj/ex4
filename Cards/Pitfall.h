@@ -3,7 +3,7 @@
 
 #include "Card.h"
 
-class Pitfall:: public Card
+class Pitfall : public Card
 {
     public:
     /*
@@ -17,7 +17,7 @@ class Pitfall:: public Card
     /*
      * D'tor of Goblin class
     */
-    ~Pitfall() = default override;
+    ~Pitfall() override = default;
 
     /*
      * Initiates an encounter with the card.

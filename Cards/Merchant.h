@@ -3,7 +3,7 @@
 
 #include "Card.h"
 
-class Merchant:: public Card
+class Merchant : public Card
 {
     public:
     /*
@@ -17,7 +17,7 @@ class Merchant:: public Card
     /*
      * D'tor of Goblin class
     */
-    ~Merchant() = default override;
+    ~Merchant() override = default;
 
     /*
      * Initiates an encounter with the card.

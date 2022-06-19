@@ -41,7 +41,7 @@ void printPlayerDetails(ostream &os, const string &name, const string &job, int 
 }
 
 /* ---------------------------------------------------------------------------------------------- */
-// ----------------------------        Print functions for Card class         --------------------------
+// ----------------------------        Print functions for MyCard class         --------------------------
 
 void printCardDetails(ostream &os, const string &name)
 {
@@ -195,63 +195,13 @@ void printLeaderBoardStartMessage()
     cout << "Ranking    Player Name     Level     Force HP    Coins Job" << endl;
 }
 
-//void printPlayerLeaderBoard(int ranking, const Player& player)
-//{
-//    cout << ranking << "          " << player << endl;
-//}
+void printPlayerLeaderBoard(int ranking, const Player& player)
+{
+    cout << ranking << "          " << player << endl;
+}
 
 void printGameEndMessage()
 {
     cout << "The Game has ended!!!" << endl;
-}
-
-//utilities from HW2 --------------------------------------------------------------
-
-
-void printBattleCardInfo(const CardStats& card)
-{
-    cout << "Card drawn:" << endl;
-    cout << "Type: Battle" << endl;
-    cout << "Force: " << card.force << endl;
-    cout << "Profit (on win): " << card.loot << endl;
-    cout << "Damage taken (on loss): " << card.hpLossOnDefeat << endl;
-    cout << LINE_DIVIDER << endl;
-}
-
-void printBattleResult(bool win)
-{
-    if (win){
-        cout << "The player defeated the monster and won the loot! Hooray!" << endl;
-        cout << LINE_DIVIDER << endl;
-    } else{
-        cout << "After a long battle, the player has fled wounded and failed." << endl;
-        cout << LINE_DIVIDER << endl;
-    }
-}
-
-void printBuffCardInfo(const CardStats& card)
-{
-    cout << "Card drawn:" << endl;
-    cout << "Type: Buff" << endl;
-    cout << "Buff points: " << card.buff << endl;
-    cout << "Cost: " << card.cost << endl;
-    cout << LINE_DIVIDER << endl;
-}
-
-void printHealCardInfo(const CardStats& card)
-{
-    cout << "Card drawn:" << endl;
-    cout << "Type: Heal" << endl;
-    cout << "Heal points: " << card.heal << endl;
-    cout << "Cost: " << card.cost << endl;
-    cout << LINE_DIVIDER << endl;
-}
-
-void printTreasureCardInfo(const CardStats& card)
-{
-    cout << "Card drawn:" << endl;
-    cout << "Type: Treasure" << endl;
-    cout << "Coins: " << card.loot << endl;
-    cout << LINE_DIVIDER << endl;
 }
 

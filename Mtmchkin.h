@@ -1,7 +1,36 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 
+#include <iostream>
+#include <memory>
+#include <vector>
+#include "Cards/Card.h"
+#include "Cards/Barfight.h"
+#include "Cards/BattleCard.h"
+#include "Cards/Dragon.h"
+#include "Cards/Fairy.h"
+#include "Cards/Goblin.h"
+#include "Cards/Merchant.h"
+#include "Cards/Pitfall.h"
+#include "Cards/Treasure.h"
+#include "Cards/Vampire.h"
+#include "Players/Player.h"
+#include "Players/Fighter.h"
+#include "Players/Rogue.h"
+#include "Players/Wizard.h"
+#include "Exception.h"
+
+
+
 class Mtmchkin{
+private:
+    std::vector<std::unique_ptr<Card>> m_cards;
+    std::vector<std::unique_ptr<Player>> m_players;
+    int m_roundNumber;
+    int m_indexForCards;
+    int m_indexForBeginPlayers;
+    int m_indexForLastPlayers;
+    std::vector<int> m_placingThePlayers;
 
 public:
     

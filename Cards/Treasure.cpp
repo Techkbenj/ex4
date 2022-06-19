@@ -1,6 +1,6 @@
 #include "Treasure.h"
 
-Treasure::Treasure() : Card("Treasure") {};
+Treasure::Treasure() : Card("Treasure") {}
 
 void Treasure::encounter(Player& player) const
 {

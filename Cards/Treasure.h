@@ -3,7 +3,7 @@
 
 #include "Card.h"
 
-class Treasure:: public Card
+class Treasure : public Card
 {
     public:
     /*
@@ -17,7 +17,7 @@ class Treasure:: public Card
     /*
      * D'tor of Goblin class
     */
-    ~Treasure() = default override;
+    ~Treasure() override = default;
 
     /*
      * Initiates an encounter with the card.

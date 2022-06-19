@@ -17,7 +17,7 @@ class Dragon : public BattleCard
     /*
      * D'tor of Dragon class
     */
-    ~Dragon() = default override;
+    ~Dragon() override = default;
 
     /*
      * Prints the card info.
@@ -33,6 +33,6 @@ class Dragon : public BattleCard
      *      void
     */
     void encounter(Player& player) const override;
-}
+};
 
 #endif //EX4_Goblin_H

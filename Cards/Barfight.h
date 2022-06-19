@@ -3,7 +3,7 @@
 
 #include "Card.h"
 
-class Barfight:: public Card
+class Barfight : public Card
 {
     public:
     /*
@@ -17,7 +17,7 @@ class Barfight:: public Card
     /*
      * D'tor of Goblin class
     */
-    ~Barfight() = default override;
+    ~Barfight() override = default;
 
     /*
      * Initiates an encounter with the card.

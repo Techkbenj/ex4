@@ -3,14 +3,12 @@
 
 #include <string>
 #include <iostream>
-#include "../utilities.h"
 
 
 class Player {
 
 protected:
     std::string m_name; //The name of the player.
-    std::string m_class; //The class of the player.
     int m_level; //The level of the player. Range of level can be from 1 to 10.
     int m_force; //The force points of a player.
     int m_maxHp; //The max health points the player can have.
@@ -27,7 +25,7 @@ protected:
      * @return
      *      A new Player.
     */
-    Player(std::string name, std::string class);
+    Player(std::string name);
 
     /*
     * Copy C'tor of Player class
@@ -129,13 +127,13 @@ protected:
      */
     virtual int getAttackStrength() const;
 
-    const int getCoins() const;
+    int getCoins() const;
+
+    int getHp() const;
 
     std::string getName();
 
     bool isWon() const;
-    
-    const std::string getClass() const;
 
     virtual void printInfoOfPlayer(std::ostream& os) const = 0;
 

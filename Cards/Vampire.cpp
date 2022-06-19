@@ -3,11 +3,24 @@
 int const DEFAULT_FORCE = 10;
 int const DEFAULT_DAMAGE = 10;
 int const DEFAULT_COINS = 2;
+const int VAMPIRE_LOSS_FORCE = -1;
 
-Goblin::Goblin(): BattleCard("Vampire", DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS) {};
+Vampire::Vampire(): BattleCard("Vampire", DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS) {}
 
-void Goblin::printInfo(std::ostream& os) const
+
+void Vampire::encounter(Player& player) const
 {
-    printMonsterDetails(os, DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS);
+    if(player.getAttackStrength() >= getForce())
+    {
+        player.levelUp();
+        player.addCoins(getCoins());
+        printWinBattle(player.getName(), getName());
+    }
+    else
+    {
+        player.damage(getDamage());
+        player.buff(VAMPIRE_LOSS_FORCE);
+        printLossBattle(player.getName(), getName());
+    }
 }
 

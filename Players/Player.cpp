@@ -15,9 +15,9 @@ static bool isNegative(int num)
     return false;
 }
 
-Player::Player(std::string name, std::string class) :
+Player::Player(std::string name) :
     m_name(name), m_level(DEFAULT_LEVEL), m_force(DEFAULT_FORCE),
-    m_maxHp(DEFAULT_MAX_HP), m_coins(DEFAULT_COINS), m_hp(DEFAULT_MAX_HP), m_class(class){}
+    m_maxHp(DEFAULT_MAX_HP), m_hp(DEFAULT_MAX_HP), m_coins(DEFAULT_COINS){}
 
 Player::~Player() {}
 
@@ -45,7 +45,7 @@ int Player::getLevel() const
 
 void Player::buff(int addForce)
 {
-    if(!isNegative(addForce))
+    if(!isNegative(m_force + addForce))
     {
         m_force += addForce;
     }
@@ -106,7 +106,12 @@ int Player::getAttackStrength() const
     return m_level + m_force;
 }
 
-const int getCoins() const
+int Player::getHp() const
+{
+    return m_hp;
+}
+
+int Player::getCoins() const
 {
     return m_coins;
 }
@@ -114,11 +119,6 @@ const int getCoins() const
 std::string Player::getName()
 {
     return m_name;
-}
-
-const std::string getClass() const
-{
-    return m_class;
 }
 
 std::ostream& operator<<(std::ostream& os, const Player& player)

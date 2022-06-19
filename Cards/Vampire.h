@@ -17,15 +17,9 @@ class Vampire : public BattleCard
     /*
      * D'tor of Vampire class
     */
-    ~Vampire() = default override;
+    ~Vampire() override = default;
 
-    /*
-     * Prints the card info.
-     *
-     * @return
-     *      void
-    */
-    void printInfo(std::ostream& os) const override;
-}
+    void encounter(Player& player) const override;
+};
 
 #endif //EX4_Goblin_H

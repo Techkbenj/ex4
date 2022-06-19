@@ -17,16 +17,7 @@ class Goblin : public BattleCard
     /*
      * D'tor of Goblin class
     */
-    ~Goblin() = default override;
-
-    /*
-     * Prints the card info.
-     *
-     * @return
-     *      void
-    */
-    void printInfo(std::ostream& os) const override;
-
-}
+    ~Goblin() override = default;
+};
 
 #endif //EX4_Goblin_H

@@ -1,12 +1,18 @@
 #include "Fairy.h"
+#include "../Players/Wizard.h"
 
-Fairy::Fairy() : Card("Fairy") {};
+Fairy::Fairy() : Card("Fairy") {}
 
 void Fairy::encounter(Player& player) const
 {
-    if (player.getClass() == "Wizard")
+    try
     {
-        player.heal(10);
+        Wizard &tempRogue = dynamic_cast<Wizard &>(player);
+        tempRogue.heal(10);
+        printFairyMessage(true);
     }
-    printFairyMessage(player.getClass() == "Wizard");
+    catch (std::bad_cast&)
+    {
+        printFairyMessage(false);
+    }
 }

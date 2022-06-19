@@ -1,12 +1,19 @@
 #include "Barfight.h"
+#include "../Players/Fighter.h"
 
-Barfight::Barfight() : Card("Barfight") {};
+Barfight::Barfight() : Card("Barfight") {}
 
 void Barfight::encounter(Player& player) const
 {
-    if (player.getClass() != "Fighter")
+    try
+    {
+        Fighter &tempRogue = dynamic_cast<Fighter &>(player);
+        tempRogue.damage(0);
+        printBarfightMessage(true);
+    }
+    catch (std::bad_cast&)
     {
         player.damage(10);
+        printBarfightMessage(false);
     }
-    printBarfightMessage(player.getClass() == "Fighter");
 }

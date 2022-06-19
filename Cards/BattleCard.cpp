@@ -6,7 +6,7 @@ BattleCard::BattleCard(std::string name, int force, int lossDmg, int coins) :
 void BattleCard::printInfo(std::ostream& os) const
 {
     printCardDetails(os, getName());
-    printMonsterDetails(os, DEFAULT_FORCE, DEFAULT_DAMAGE, DEFAULT_COINS, true);
+    printMonsterDetails(os, m_force, m_lossDmg, m_coins, false);
     printEndOfCardDetails(os);
 }
 
@@ -21,21 +21,21 @@ void BattleCard::encounter(Player& player) const
     else
     {
         player.damage(getDamage());
-        printLossBattle(player.getName(), getName())
+        printLossBattle(player.getName(), getName());
     }
 }
 
-const int BattleCard::getForce() const
+int BattleCard::getForce() const
 {
     return m_force;
 }
 
-const int BattleCard::getDamage() const
+int BattleCard::getDamage() const
 {
     return m_lossDmg;
 }
 
-const int BattleCard::getCoins() const
+int BattleCard::getCoins() const
 {
     return m_coins;
 }
