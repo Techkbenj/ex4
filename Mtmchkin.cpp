@@ -98,6 +98,7 @@ static bool checkValidName(const string hisName)
 Mtmchkin::Mtmchkin(const string fileName) : m_players(), m_roundNumber(0), m_indexForCards(0),
 m_indexForBeginPlayers(0)
 {
+    printStartGameMessage();
     std::ifstream source(fileName);
     if (!source)
     {
@@ -116,7 +117,6 @@ m_indexForBeginPlayers(0)
         throw DeckFileInvalidSize();
     }
 
-    printStartGameMessage();
     printEnterTeamSizeMessage();
     string playerName, typeOfPlayer, numOfPlayersString;
     std::getline(cin, numOfPlayersString);
