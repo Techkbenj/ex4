@@ -1,7 +1,9 @@
 #ifndef EX4_Gang_H
 #define EX4_Gang_H
 
-#include "Card.h"
+#include "BattleCard.h"
+#include <memory>
+#include <vector>
 
 class Gang : public Card
 {
@@ -24,17 +26,17 @@ class Gang : public Card
      * @return 
      *      void
     */
-    void encounter(Player& player, bool gangBattle = false, bool autoLoss = false) const override;
+    void encounter(Player& player) const override;
 
     /*
      * Inserts a card into the gang.
      * @return 
      *      void
     */
-    void insertCard(Card* card);
+    void insertCard(std::unique_ptr<BattleCard> card);
 
     private:
-    std::vector<std::unique_ptr<Card>> m_cards;
+    std::vector<std::unique_ptr<BattleCard>> m_gangCards;
 };
 
 

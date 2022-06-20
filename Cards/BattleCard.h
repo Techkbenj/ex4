@@ -20,7 +20,7 @@ BattleCard(std::string name, int force, int lossDmg, int coins);
 /*
  * D'tor of BattleCard class
 */
-virtual ~BattleCard() override = default override;
+virtual ~BattleCard() override = default;
 
 /*
  * Prints the card info.
@@ -29,13 +29,20 @@ virtual ~BattleCard() override = default override;
  *      void
 */
 void printInfo(std::ostream& os) const override;
-
 /*
  * Initiates an encounter with the card.
  * @return 
  *      void
 */
-void encounter(Player& player, bool gangBattle = false, bool autoLoss = false) const override;
+void encounter(Player& player) const override;
+
+/*
+ * Initiates an encounter with the card.
+ * Allows for more specific functionalities.
+ * @return 
+ *      void
+*/
+virtual void encounter(Player& player, bool gangBattle, bool autoLoss = false) const;
 
 /*
  * Returns the force of the card.

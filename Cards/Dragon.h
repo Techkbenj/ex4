@@ -28,11 +28,12 @@ class Dragon : public BattleCard
     void printInfo(std::ostream& os) const override;
 
     /*
-     * Initiates an encounter with the card.
-     * @return 
-     *      void
+    * Initiates an encounter with the card.
+    * Allows for more specific functionalities.
+    * @return 
+    *      void
     */
-    void encounter(Player& player, bool gangBattle = false, bool autoLoss = false) const override;
+    void encounter(Player& player, bool gangBattle, bool autoLoss = false) const override;
 };
 
 #endif //EX4_Goblin_H

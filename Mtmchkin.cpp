@@ -8,6 +8,10 @@ using std::string;
 
 static std::unique_ptr<Card> matchStringToCard(const string nameOfCard, int numberOfLine)
 {
+    if (nameOfCard == "Gang")
+    {
+        return std::unique_ptr<Card>(new Gang());
+    }
     if (nameOfCard == "Goblin")
     {
         return std::unique_ptr<Card>(new Goblin());
@@ -106,9 +110,27 @@ m_indexForBeginPlayers(0)
     }
     string line;
     int numberOfLine = 1;
+    bool gangBattle = false;
     while (std::getline(source, line))
     {
-        m_cards.push_back(matchStringToCard(line, numberOfLine));
+        if (line == "Gang")
+        {
+            gangBattle = true;
+            m_cards.push_back(matchStringToCard(line, numberOfLine));
+        }
+        else if (line == "EndGang")
+        {
+            gangBattle = false;
+        }
+        else if (!gangBattle)
+        {
+            m_cards.push_back(matchStringToCard(line, numberOfLine));
+        }
+        else
+        {
+            //problem here
+            m_cards.back()->insertCard(matchStringToCard(line, numberOfLine));
+        }
         numberOfLine++;
     }
     source.close();

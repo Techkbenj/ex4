@@ -41,7 +41,7 @@ public:
      * @return 
      *      void
     */
-    virtual void encounter(Player& player, bool gangBattle = false, bool autoLoss = false) const = 0;
+    virtual void encounter(Player& player) const = 0;
 
     /*
      * Returns the card name.

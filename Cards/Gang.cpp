@@ -5,7 +5,7 @@ Gang::Gang() : Card("Gang") {}
 void Gang::encounter(Player& player) const
 {
     int initialHp = player.getHp();
-    for (Card* card : m_cards)
+    for (std::unique_ptr<BattleCard> card : m_cards)
     {
         if(player.getHp() == initialHp)
         {
@@ -23,7 +23,7 @@ void Gang::encounter(Player& player) const
     }
 }
 
-void insertCard(Card* card)
+void insertCard(std::unique_ptr<BattleCard> card)
 {
-    m_cards.push_back(card);
+    m_gangCards.push_back(card);
 }

@@ -19,7 +19,13 @@ class Vampire : public BattleCard
     */
     ~Vampire() override = default;
 
-    void encounter(Player& player, bool gangBattle = false, bool autoLoss = false) const override;
+    /*
+    * Initiates an encounter with the card.
+    * Allows for more specific functionalities.
+    * @return 
+    *      void
+    */
+    void encounter(Player& player, bool gangBattle, bool autoLoss = false) const override;
 };
 
 #endif //EX4_Goblin_H
