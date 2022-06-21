@@ -14,6 +14,7 @@
 #include "Cards/Pitfall.h"
 #include "Cards/Treasure.h"
 #include "Cards/Vampire.h"
+#include "Cards/Gang.h"
 #include "Players/Player.h"
 #include "Players/Fighter.h"
 #include "Players/Rogue.h"
@@ -75,6 +76,8 @@ public:
     *          int - number of rounds played
     */
     int getNumberOfRounds() const;
+
+    void createGang(std::ifstream &source, int numOfLine);
 };
 
 

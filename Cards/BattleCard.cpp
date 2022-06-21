@@ -12,21 +12,12 @@ void BattleCard::printInfo(std::ostream& os) const
 
 void BattleCard::encounter(Player& player) const
 {
-    BattleCard::encounter(player, false);
-}
-
-void BattleCard::encounter(Player& player, bool gangBattle, bool autoLoss) const
-{
-    if(player.getAttackStrength() >= getForce() && gangBattle == false)
+    if(player.getAttackStrength() >= getForce())
     {
         player.levelUp();
         player.addCoins(getCoins());
         printWinBattle(player.getName(), getName());
-    }
-    else if(player.getAttackStrength() >= getForce() && gangBattle == true && autoLoss == false)
-    {
-        player.addCoins(getCoins());
-    }       
+    }      
     else
     {
         player.damage(getDamage());

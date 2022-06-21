@@ -37,14 +37,6 @@ void printInfo(std::ostream& os) const override;
 void encounter(Player& player) const override;
 
 /*
- * Initiates an encounter with the card.
- * Allows for more specific functionalities.
- * @return 
- *      void
-*/
-virtual void encounter(Player& player, bool gangBattle, bool autoLoss = false) const;
-
-/*
  * Returns the force of the card.
  * @return
  *      Force of card.

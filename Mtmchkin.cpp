@@ -8,10 +8,6 @@ using std::string;
 
 static std::unique_ptr<Card> matchStringToCard(const string nameOfCard, int numberOfLine)
 {
-    if (nameOfCard == "Gang")
-    {
-        return std::unique_ptr<Card>(new Gang());
-    }
     if (nameOfCard == "Goblin")
     {
         return std::unique_ptr<Card>(new Goblin());
@@ -46,6 +42,7 @@ static std::unique_ptr<Card> matchStringToCard(const string nameOfCard, int numb
     }
     throw DeckFileFormatError(numberOfLine);
 }
+
 
 static bool checkValidNumberOfPlayers(int num)
 {
@@ -109,30 +106,35 @@ m_indexForBeginPlayers(0)
         throw DeckFileNotFound();
     }
     string line;
-    int numberOfLine = 1;
     bool gangBattle = false;
+    int numberOfLine = 1;
+    std::unique_ptr<Gang> gang;
     while (std::getline(source, line))
     {
         if (line == "Gang")
         {
             gangBattle = true;
-            m_cards.push_back(matchStringToCard(line, numberOfLine));
+            gang = std::move(std::unique_ptr<Gang>(new Gang()));
+            numberOfLine++;
+            continue;
         }
-        else if (line == "EndGang")
+        if (gangBattle && line!="EndGang")
+        {
+            gang->insertCard(line);
+            numberOfLine++;
+            continue;
+        }
+        if(line == "EndGang")
         {
             gangBattle = false;
+            m_cards.push_back(std::move(gang));
+            numberOfLine++;
+            continue;
         }
-        else if (!gangBattle)
-        {
-            m_cards.push_back(matchStringToCard(line, numberOfLine));
-        }
-        else
-        {
-            //problem here
-            m_cards.back()->insertCard(matchStringToCard(line, numberOfLine));
-        }
+        m_cards.push_back(matchStringToCard(line, numberOfLine));
         numberOfLine++;
     }
+
     source.close();
     if (m_cards.size() < 5)
     {
@@ -141,11 +143,29 @@ m_indexForBeginPlayers(0)
 
     printEnterTeamSizeMessage();
     string playerName, typeOfPlayer, numOfPlayersString;
+    int convertToInt = 0;
+    bool theFinalSize = true;
     std::getline(cin, numOfPlayersString);
-    while ((!(checkOnlyDigit(numOfPlayersString))) || (!checkValidNumberOfPlayers(std::stoi(numOfPlayersString))))
+    while (theFinalSize)
     {
-        printInvalidTeamSize();
-        std::getline(cin, numOfPlayersString);
+        try
+        {
+            convertToInt = std::stoi(numOfPlayersString);
+            if(checkOnlyDigit(numOfPlayersString) && checkValidNumberOfPlayers(convertToInt))
+            {
+                theFinalSize = false;
+            }
+            else
+            {
+                throw std::invalid_argument("");
+            }
+        }
+        catch (const std::exception&)
+        {
+            printInvalidTeamSize();
+            printEnterTeamSizeMessage();
+            std::getline(cin, numOfPlayersString);
+        }
     }
     int n = std::stoi(numOfPlayersString);
     for (int i = 0; i < n; i++)
@@ -258,3 +278,36 @@ bool Mtmchkin::isGameOver() const
     }
     return false;
 }
+/*
+void Mtmchkin::createGang(std::ifstream &source, int numOfLine)
+{
+    std::unique_ptr<Gang> gang = std::unique_ptr<Gang>(new Gang());
+    std::string line;
+    while(std::getline(source, line))
+    {
+        if(line != "EndGang")
+        {
+            if(line == "Goblin" || line == "Dragon" || line == "Vampire")
+            {
+                gang->insertCard(line);
+            }
+            else
+            {
+                throw DeckFileFormatError(numOfLine);
+            }
+        }
+        else
+        {
+            break;
+        }
+        numOfLine++;
+    }
+    m_cards.push_back(std::move(gang));
+}
+*/
+
+
+
+
+
+

@@ -7,8 +7,8 @@ void Barfight::encounter(Player& player) const
 {
     try
     {
-        Fighter &tempRogue = dynamic_cast<Fighter &>(player);
-        tempRogue.damage(0);
+        Fighter &tempFighter = dynamic_cast<Fighter &>(player);
+        tempFighter.damage(0);
         printBarfightMessage(true);
     }
     catch (std::bad_cast&)

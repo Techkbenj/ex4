@@ -1,29 +1,48 @@
 #include "Gang.h"
+#include "Vampire.h"
+#include "Dragon.h"
+#include "Goblin.h"
 
-Gang::Gang() : Card("Gang") {}
+Gang::Gang() : Card("Gang"){}
 
 void Gang::encounter(Player& player) const
 {
-    int initialHp = player.getHp();
-    for (std::unique_ptr<BattleCard> card : m_cards)
+    bool autoLoss = false;
+    for (unsigned int i = 0; i < m_gangCards.size(); i++)
     {
-        if(player.getHp() == initialHp)
+        if(player.getAttackStrength() >= m_gangCards[i]->getForce() && (autoLoss == false))
         {
-            card->encounter(player, true);
+            player.addCoins(m_gangCards[i]->getCoins());
         }
         else
         {
-            card->encounter(player, true, true);
+            autoLoss = true;
+            player.damage(m_gangCards[i]->getDamage());
+            printLossBattle(player.getName(), m_gangCards[i]->getName());
+        }     
+    }
+    if (!autoLoss)
+        {
+            player.levelUp();
+            printWinBattle(player.getName(), getName());
         }
-    }
-    if (player.getHp() == initialHp)
-    {
-        player.levelUp();
-        printWinBattle(player.getName(), getName());
-    }
 }
 
-void insertCard(std::unique_ptr<BattleCard> card)
+void  Gang::insertCard(std::string nameOfCard)
 {
-    m_gangCards.push_back(card);
+    if (nameOfCard == "Goblin")
+    {
+        m_gangCards.push_back(std::unique_ptr<BattleCard>(new Goblin()));
+        return;
+    }
+    if (nameOfCard == "Vampire")
+    {
+        m_gangCards.push_back(std::unique_ptr<BattleCard>(new Vampire()));
+        return;
+    }
+    if (nameOfCard == "Dragon")
+    {
+        m_gangCards.push_back(std::unique_ptr<BattleCard>(new Dragon()));
+        return;
+    } 
 }

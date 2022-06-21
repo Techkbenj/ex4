@@ -25,7 +25,7 @@ class Vampire : public BattleCard
     * @return 
     *      void
     */
-    void encounter(Player& player, bool gangBattle, bool autoLoss = false) const override;
+    void encounter(Player& player) const override;
 };
 
 #endif //EX4_Goblin_H

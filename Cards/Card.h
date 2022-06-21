@@ -23,9 +23,6 @@ public:
     */
     virtual ~Card() = default;
 
-    //Card(const Card&) = default;
-    //Card& operator=(const Card& other) = default;
-
     friend std::ostream& operator<<(std::ostream& os, const Card& card);
 
     /*

@@ -19,7 +19,7 @@ class Gang : public Card
     /*
      * D'tor of Gang class
     */
-    ~Gang() override = default;
+    ~Gang() = default;
 
     /*
      * Initiates an encounter with the card.
@@ -33,7 +33,7 @@ class Gang : public Card
      * @return 
      *      void
     */
-    void insertCard(std::unique_ptr<BattleCard> card);
+    void insertCard(std::string nameOfCard);
 
     private:
     std::vector<std::unique_ptr<BattleCard>> m_gangCards;

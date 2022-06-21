@@ -14,17 +14,13 @@ void Dragon::printInfo(std::ostream& os) const
     printEndOfCardDetails(os);
 }
 
-void Dragon::encounter(Player& player, bool gangBattle, bool autoLoss) const
+void Dragon::encounter(Player& player) const
 {
-    if(player.getAttackStrength() >= getForce() && gangBattle == false)
+    if(player.getAttackStrength() >= getForce())
     {
         player.levelUp();
         player.addCoins(getCoins());
         printWinBattle(player.getName(), getName());
-    }
-    else if(player.getAttackStrength() >= getForce() && gangBattle == true && autoLoss == false)
-    {
-        player.addCoins(getCoins());
     }
     else
     {
