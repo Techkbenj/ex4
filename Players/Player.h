@@ -28,22 +28,22 @@ protected:
     Player(std::string name);
 
     /*
+     * D'tor of Player Class
+     */
+    virtual ~Player() = default;
+
+    /*
     * Copy C'tor of Player class
-    * @param Player - The player to copy the stats from.
+    * @param layer - The player to copy the stats from.
     * @return 
     *      A new Player.
     */
     Player(const Player& player) = default;
 
     /*
-     * D'tor of Player Class
-     */
-    virtual ~Player();
-
-    /*
      * Assignment operator of player Class
      * 
-     * @param Player - The player from which the assignment if coming
+     * @param Player - The player from which the assignment is coming
      * @return 
      *      The assigned player 
      */
@@ -127,16 +127,50 @@ protected:
      */
     virtual int getAttackStrength() const;
 
+    /*
+     * Returns the amount of coins the player has.
+     *
+     * @return 
+     *      The amount of coins the player has.
+     */
     int getCoins() const;
 
+    /*
+     * Returns the amount of health points the player has.
+     *
+     * @return 
+     *      The amount of health points the player has.
+     */
     int getHp() const;
 
+    /*
+     * Returns the name of the player.
+     *
+     * @return 
+     *      The name of the player.
+     */
     std::string getName();
-
+    
+    /*
+     * Returns true if the player has won.
+     *
+     * @return 
+     *      The true if the player has won.
+     */
     bool isWon() const;
 
+    /*
+     * Prints the stats of a player.
+     *
+     * @param os - The chosen output stream
+     * @return 
+     *      The true if the player has won.
+     */
     virtual void printInfoOfPlayer(std::ostream& os) const = 0;
 
+    /*
+     * Friend function of Player class;
+    */
     friend std::ostream& operator<<(std::ostream& os, const Player& player);
 };
 

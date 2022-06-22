@@ -22,6 +22,24 @@ class Gang : public Card
     ~Gang() = default;
 
     /*
+     *  Copy C'tor of Gang class
+     *
+     * @param gang - The Gang to copy.
+     * @return
+     *      A new instance of Gang.
+    */
+    Gang(const Gang& gang) = default;
+
+    /*
+     * Assignment operator of Gang Class
+     * 
+     * @param gang - The Gang from which the assignment is coming
+     * @return 
+     *      The assigned Gang
+     */
+    Gang& operator=(const Gang& gang) = default;
+
+    /*
      * Initiates an encounter with the card.
      * @return 
      *      void

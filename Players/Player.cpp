@@ -19,7 +19,6 @@ Player::Player(std::string name) :
     m_name(name), m_level(DEFAULT_LEVEL), m_force(DEFAULT_FORCE),
     m_maxHp(DEFAULT_MAX_HP), m_hp(DEFAULT_MAX_HP), m_coins(DEFAULT_COINS){}
 
-Player::~Player() {}
 
 void Player::levelUp()
 {

@@ -23,6 +23,27 @@ public:
     */
     virtual ~Card() = default;
 
+    /*
+     *  Copy C'tor of Card class
+     *
+     * @param card - The card to copy.
+     * @return
+     *      A new instance of Card.
+    */
+    Card(const Card& card) = default;
+
+    /*
+     * Assignment operator of Card Class
+     * 
+     * @param card - The Card from which the assignment is coming
+     * @return 
+     *      The assigned Card
+     */
+    Card& operator=(const Card& card) = default;
+
+    /*
+     * Friend function of Card class;
+    */
     friend std::ostream& operator<<(std::ostream& os, const Card& card);
 
     /*

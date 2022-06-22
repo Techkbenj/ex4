@@ -43,6 +43,21 @@ public:
     *      A new instance of Mtmchkin.
     */
     Mtmchkin(const std::string fileName);
+
+    /*
+     * D'tor of Mtmchkin class
+    */
+    ~Mtmchkin() = default;
+
+    /*
+     *  Copy C'tor of Mtmchkin class
+    */
+    Mtmchkin(const Mtmchkin&) = delete;
+
+    /*
+     *  Assignment operator of Mtmchkin class
+    */
+    Mtmchkin& operator=(const Mtmchkin&) = delete;
     
     /*
     * Play the next Round of the game - according to the instruction in the exercise document.

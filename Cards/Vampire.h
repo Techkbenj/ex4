@@ -17,7 +17,25 @@ class Vampire : public BattleCard
     /*
      * D'tor of Vampire class
     */
-    ~Vampire() override = default;
+    ~Vampire() = default;
+
+    /*
+     *  Copy C'tor of Vampire class
+     *
+     * @param vampire - The Vampire to copy.
+     * @return
+     *      A new instance of Vampire.
+    */
+    Vampire(const Vampire& vampire) = default;
+
+    /*
+     * Assignment operator of Vampire Class
+     * 
+     * @param vampire - The Vampire from which the assignment is coming
+     * @return 
+     *      The assigned Vampire
+     */
+    Vampire& operator=(const Vampire& vampire) = default;
 
     /*
     * Initiates an encounter with the card.

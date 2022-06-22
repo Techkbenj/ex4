@@ -15,9 +15,27 @@ class Fairy : public Card
     Fairy();
 
     /*
-     * D'tor of Goblin class
+     * D'tor of Fairy class
     */
-    ~Fairy() override = default;
+    ~Fairy() = default;
+
+    /*
+     *  Copy C'tor of Fairy class
+     *
+     * @param fairy - The Fairy to copy.
+     * @return
+     *      A new instance of Fairy.
+    */
+    Fairy(const Fairy& fairy) = default;
+
+    /*
+     * Assignment operator of Fairy Class
+     * 
+     * @param fairy - The Fairy from which the assignment is coming
+     * @return 
+     *      The assigned Fairy
+     */
+    Fairy& operator=(const Fairy& fairy) = default;
 
     /*
      * Initiates an encounter with the card.

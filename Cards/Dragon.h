@@ -17,7 +17,25 @@ class Dragon : public BattleCard
     /*
      * D'tor of Dragon class
     */
-    ~Dragon() override = default;
+    ~Dragon() = default;
+
+    /*
+     *  Copy C'tor of Dragon class
+     *
+     * @param dragon - The Dragon to copy.
+     * @return
+     *      A new instance of Dragon.
+    */
+    Dragon(const Dragon& dragon) = default;
+
+    /*
+     * Assignment operator of Dragon Class
+     * 
+     * @param dragon - The Dragon from which the assignment is coming
+     * @return 
+     *      The assigned Dragon
+     */
+    Dragon& operator=(const Dragon& dragon) = default;
 
     /*
      * Prints the card info.

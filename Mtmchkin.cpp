@@ -278,33 +278,7 @@ bool Mtmchkin::isGameOver() const
     }
     return false;
 }
-/*
-void Mtmchkin::createGang(std::ifstream &source, int numOfLine)
-{
-    std::unique_ptr<Gang> gang = std::unique_ptr<Gang>(new Gang());
-    std::string line;
-    while(std::getline(source, line))
-    {
-        if(line != "EndGang")
-        {
-            if(line == "Goblin" || line == "Dragon" || line == "Vampire")
-            {
-                gang->insertCard(line);
-            }
-            else
-            {
-                throw DeckFileFormatError(numOfLine);
-            }
-        }
-        else
-        {
-            break;
-        }
-        numOfLine++;
-    }
-    m_cards.push_back(std::move(gang));
-}
-*/
+
 
 
 

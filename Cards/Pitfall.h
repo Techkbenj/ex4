@@ -17,7 +17,25 @@ class Pitfall : public Card
     /*
      * D'tor of Pitfall class
     */
-    ~Pitfall() override = default;
+    ~Pitfall() = default;
+
+    /*
+     *  Copy C'tor of Pitfall class
+     *
+     * @param pitfall - The Pitfall to copy.
+     * @return
+     *      A new instance of Pitfall.
+    */
+    Pitfall(const Pitfall& pitfall) = default;
+
+    /*
+     * Assignment operator of Pitfall Class
+     * 
+     * @param Pitfall - The Pitfall from which the assignment is coming
+     * @return 
+     *      The assigned Pitfall
+     */
+    Pitfall& operator=(const Pitfall& pitfall) = default;
 
     /*
      * Initiates an encounter with the card.

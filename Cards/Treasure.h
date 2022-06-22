@@ -15,9 +15,27 @@ class Treasure : public Card
     Treasure();
 
     /*
-     * D'tor of Goblin class
+     * D'tor of Treasure class
     */
-    ~Treasure() override = default;
+    ~Treasure() = default;
+
+    /*
+     *  Copy C'tor of Treasure class
+     *
+     * @param treasure - The Treasure to copy.
+     * @return
+     *      A new instance of Treasure.
+    */
+    Treasure(const Treasure& treasure) = default;
+
+    /*
+     * Assignment operator of Treasure Class
+     * 
+     * @param treasure - The Treasure from which the assignment is coming
+     * @return 
+     *      The assigned Treasure
+     */
+    Treasure& operator=(const Treasure& treasure) = default;
 
     /*
      * Initiates an encounter with the card.

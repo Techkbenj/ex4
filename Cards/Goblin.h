@@ -17,7 +17,25 @@ class Goblin : public BattleCard
     /*
      * D'tor of Goblin class
     */
-    ~Goblin() override = default;
+    ~Goblin()  = default;
+
+    /*
+     *  Copy C'tor of Goblin class
+     *
+     * @param goblin - The Goblin to copy.
+     * @return
+     *      A new instance of Goblin.
+    */
+    Goblin(const Goblin& goblin) = default;
+
+    /*
+     * Assignment operator of Goblin Class
+     * 
+     * @param goblin - The Goblin from which the assignment is coming
+     * @return 
+     *      The assigned Goblin
+     */
+    Goblin& operator=(const Goblin& goblin) = default;
 };
 
 #endif //EX4_Goblin_H

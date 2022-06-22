@@ -15,9 +15,27 @@ class Merchant : public Card
     Merchant();
 
     /*
-     * D'tor of Goblin class
+     * D'tor of Merchant class
     */
-    ~Merchant() override = default;
+    ~Merchant()  = default;
+
+    /*
+     *  Copy C'tor of Merchant class
+     *
+     * @param merchant - The Merchant to copy.
+     * @return
+     *      A new instance of Merchant.
+    */
+    Merchant(const Merchant& merchant) = default;
+
+    /*
+     * Assignment operator of Merchant Class
+     * 
+     * @param merchant - The Merchant from which the assignment is coming
+     * @return 
+     *      The assigned Merchant
+     */
+    Merchant& operator=(const Merchant& merchant) = default;
 
     /*
      * Initiates an encounter with the card.

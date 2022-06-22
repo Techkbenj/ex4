@@ -5,7 +5,7 @@
 
 class Barfight : public Card
 {
-    public:
+public:
     /*
     * C'tor of Barfight class
     *
@@ -15,9 +15,27 @@ class Barfight : public Card
     Barfight();
 
     /*
-     * D'tor of Goblin class
+     * D'tor of Barfight class
     */
-    ~Barfight() override = default;
+    ~Barfight() = default;
+
+    /*
+     *  Copy C'tor of Barfight class
+     *
+     * @param barfight - The Barfight to copy.
+     * @return
+     *      A new instance of Barfight.
+    */
+    Barfight(const Barfight& barfight) = default;
+
+    /*
+     * Assignment operator of Barfight Class
+     * 
+     * @param barfight - The Barfight from which the assignment is coming
+     * @return 
+     *      The assigned Barfight
+     */
+    Barfight& operator=(const Barfight& barfight) = default;
 
     /*
      * Initiates an encounter with the card.
