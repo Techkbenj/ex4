@@ -91,7 +91,15 @@ public:
     *          int - number of rounds played
     */
     int getNumberOfRounds() const;
-
+    
+    /*
+    *  Creates a gang to add to the card deck.
+    *
+    * @param source - The stream to get input from
+    * @numOfLine - Line number
+    *  @return
+    *          void
+    */
     void createGang(std::ifstream &source, int numOfLine);
 };
 
