@@ -113,6 +113,10 @@ m_indexForBeginPlayers(0)
     {
         if (line == "Gang")
         {
+            if (gangBattle == true)
+            {
+                throw DeckFileFormatError(numberOfLine);
+            }
             gangBattle = true;
             gang = std::move(std::unique_ptr<Gang>(new Gang()));
             numberOfLine++;
