@@ -38,12 +38,11 @@ class Vampire : public BattleCard
     Vampire& operator=(const Vampire& vampire) = default;
 
     /*
-    * Initiates an encounter with the card.
-    * Allows for more specific functionalities.
+    * Applies the loss according to the card conditions.
     * @return 
     *      void
     */
-    void encounter(Player& player) const override;
+    void enactLoss(Player& player) const override;
 };
 
 #endif //EX4_Goblin_H

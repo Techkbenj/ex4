@@ -55,6 +55,13 @@ public:
     void encounter(Player& player) const override;
 
     /*
+    * Applies the loss according to the card conditions.
+    * @return 
+    *      void
+    */
+    virtual void enactLoss(Player& player) const;
+
+    /*
     * Returns the force of the card.
     * @return
     *      Force of card.

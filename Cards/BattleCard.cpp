@@ -20,7 +20,7 @@ void BattleCard::encounter(Player& player) const
     }      
     else
     {
-        player.damage(getDamage());
+        enactLoss(player);
         printLossBattle(player.getName(), getName());
     }
 }
@@ -38,6 +38,11 @@ int BattleCard::getDamage() const
 int BattleCard::getCoins() const
 {
     return m_coins;
+}
+
+void BattleCard::enactLoss(Player& player) const
+{
+    player.damage(getDamage());
 }
 
 

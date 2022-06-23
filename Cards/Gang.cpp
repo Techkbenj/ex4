@@ -17,7 +17,7 @@ void Gang::encounter(Player& player) const
         else
         {
             autoLoss = true;
-            player.damage(m_gangCards[i]->getDamage());
+            m_gangCards[i]->enactLoss(player);
             printLossBattle(player.getName(), m_gangCards[i]->getName());
         }     
     }

@@ -14,17 +14,7 @@ void Dragon::printInfo(std::ostream& os) const
     printEndOfCardDetails(os);
 }
 
-void Dragon::encounter(Player& player) const
+void Dragon::enactLoss(Player& player) const
 {
-    if(player.getAttackStrength() >= getForce())
-    {
-        player.levelUp();
-        player.addCoins(getCoins());
-        printWinBattle(player.getName(), getName());
-    }
-    else
-    {
-        player.damage(player.getHp());
-        printLossBattle(player.getName(), getName());
-    }
+    player.damage(player.getHp());
 }

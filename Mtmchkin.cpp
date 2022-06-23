@@ -120,12 +120,20 @@ m_indexForBeginPlayers(0)
         }
         if (gangBattle && line!="EndGang")
         {
+            if (line != "Vampire" && line != "Dragon" && line != "Goblin")
+            {
+                throw DeckFileFormatError(numberOfLine);
+            }
             gang->insertCard(line);
             numberOfLine++;
             continue;
         }
         if(line == "EndGang")
         {
+            if (gangBattle == false)
+            {
+                throw DeckFileFormatError(numberOfLine);
+            }
             gangBattle = false;
             m_cards.push_back(std::move(gang));
             numberOfLine++;
@@ -133,6 +141,10 @@ m_indexForBeginPlayers(0)
         }
         m_cards.push_back(matchStringToCard(line, numberOfLine));
         numberOfLine++;
+    }
+    if (gangBattle)
+    {
+        throw DeckFileFormatError(numberOfLine);
     }
 
     source.close();
